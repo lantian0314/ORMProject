@@ -12,8 +12,9 @@
     tools:context="orm.ormproject.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btn_sugarORM"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="SugarORM" />
 </RelativeLayout>
