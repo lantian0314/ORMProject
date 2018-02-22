@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.List;
+
+import orm.ormproject.db.Student;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -26,6 +30,15 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        Student student=new Student();
+        student.setStudentId("123456");
+        student.setAge(18);
+        student.setName("name");
+        student.setSex("男");
+        student.save();
+        List<Student> findList=Student.find(Student.class, "student_ID=?", "123456");
+        long count=Student.count(Student.class);
+        List<Student> mList=Student.listAll(Student.class);
     }
 
     @Override
