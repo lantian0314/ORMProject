@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import orm.ormproject.R;
 import orm.ormproject.db.Student;
 
@@ -15,7 +17,6 @@ import orm.ormproject.db.Student;
  * Created by xingyatong on 2018/2/22.
  */
 public class MyRecycleAdapter extends RecyclerView.Adapter<MyRecycleAdapter.ListViewHolder> {
-
     private Context mContext;
     private List<Student> mList;
 
@@ -25,10 +26,11 @@ public class MyRecycleAdapter extends RecyclerView.Adapter<MyRecycleAdapter.List
     }
 
     @Override
-    public MyRecycleAdapter.ListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = View.inflate(mContext, R.layout.recycle_item, null);
         ListViewHolder listViewHolder = new ListViewHolder(view);
         return listViewHolder;
+
     }
 
     @Override
@@ -46,17 +48,22 @@ public class MyRecycleAdapter extends RecyclerView.Adapter<MyRecycleAdapter.List
     }
 
     public class ListViewHolder extends RecyclerView.ViewHolder {
-        private TextView txt_id;
-        private TextView txt_name;
-        private TextView txt_age;
-        private TextView txt_sex;
+        @BindView(R.id.txt_studentid)
+        TextView txt_id;
+        @BindView(R.id.txt_name)
+        TextView txt_name;
+        @BindView(R.id.txt_studentAge)
+        TextView txt_age;
+        @BindView(R.id.txt_sex)
+        TextView txt_sex;
 
         public ListViewHolder(View itemView) {
             super(itemView);
-            txt_id = itemView.findViewById(R.id.txt_studentid);
-            txt_name = itemView.findViewById(R.id.txt_name);
-            txt_age = itemView.findViewById(R.id.txt_studentAge);
-            txt_sex = itemView.findViewById(R.id.txt_sex);
+            ButterKnife.bind(ListViewHolder.this, itemView);
+//            txt_id = itemView.findViewById(R.id.txt_studentid);
+//            txt_name = itemView.findViewById(R.id.txt_name);
+//            txt_age = itemView.findViewById(R.id.txt_studentAge);
+//            txt_sex = itemView.findViewById(R.id.txt_sex);
         }
 
         public void setData(Student student) {
