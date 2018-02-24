@@ -11,19 +11,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
-import java.util.List;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
-import orm.ormproject.db.Student;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button sugarBtn = null;
+    @BindView(R.id.btn_sugarORM)
+    Button sugarBtn = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        sugarBtn = (Button) findViewById(R.id.btn_sugarORM);
+        ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
