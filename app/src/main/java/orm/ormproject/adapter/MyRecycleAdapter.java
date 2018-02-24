@@ -30,6 +30,7 @@ public class MyRecycleAdapter extends RecyclerView.Adapter<MyRecycleAdapter.List
         View view = View.inflate(mContext, R.layout.recycle_item, null);
         ListViewHolder listViewHolder = new ListViewHolder(view);
         return listViewHolder;
+
     }
 
     @Override
